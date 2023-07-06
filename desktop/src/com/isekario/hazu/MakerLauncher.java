@@ -9,6 +9,7 @@ public class MakerLauncher {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
         config.setForegroundFPS(60);
         config.setTitle("Maker");
+        config.setWindowedMode(1600, 900);
         new Lwjgl3Application(new Maker(), config);
     }
 }
