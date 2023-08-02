@@ -10,6 +10,14 @@
         "maps/school/School.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "maps/school/school.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 174.66666666666666,
+                "y": 180.33333333333337
+            }
         }
     },
     "last.imagePath": "C:/Users/Utilisateur/IdeaProjects/Hazu/assets/tiled/sets/school/Tilemap",
@@ -20,6 +28,7 @@
     ],
     "project": "hazu project.tiled-project",
     "recentFiles": [
+        "maps/school/school.tmx",
         "maps/school/School.tsx"
     ],
     "tileset.lastUsedFormat": "tsx"

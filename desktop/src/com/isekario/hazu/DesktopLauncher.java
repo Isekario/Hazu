@@ -9,6 +9,7 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("Hazu");
 		config.setWindowIcon("icon.png");
-		new Lwjgl3Application(new Hazu(), config);
+		//new Lwjgl3Application(new Hazu(), config);
+		new Lwjgl3Application(new TileTest(), config);
 	}
 }
