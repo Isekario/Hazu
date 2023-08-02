@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="1" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="School.tsx"/>
+ <layer id="1" name="infrastructure" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="-16" width="16" height="16">
+   eJxjYBgFo2AUjDTACMRMQAwABBAABA==
+  </chunk>
+   <chunk x="0" y="-16" width="16" height="16">
+   eJxjYBgFo2AUDFXADMRMQMwBxJxk6AcACMwAFw==
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYCAPGAOxLiOZmqH6e5ko07+fQv0fKdQ/kUL/H6VQ/+RR+8kG04F4Jvnahw0AABCCCnM=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJzTY2Rg0AdiAyC2ZiAd9DFBcD8TefrVmRkYNID4IJn6JwL1TQLiz2TqnwT092QgngjEFmToPwLUdxRqRhaQD3QGAwcRNCdUP0wviP4P5BsyEodzofonI9mfBMTJQJwCxKl46DQk/cj2TwHiqUA8jQA9A4f9x4D4OBCfIECfwmH/DyD+DcS/CNB/kPTPJBPPJyOuhyMAAHkzQaI=
+  </chunk>
+  </data>
+ </layer>
+</map>

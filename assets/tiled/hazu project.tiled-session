@@ -1,0 +1,26 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "maps/school/School.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/Utilisateur/IdeaProjects/Hazu/assets/tiled/sets/school/Tilemap",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "openFiles": [
+    ],
+    "project": "hazu project.tiled-project",
+    "recentFiles": [
+        "maps/school/School.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}
