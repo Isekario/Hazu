@@ -9,10 +9,15 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
 import com.badlogic.gdx.math.Vector3;
 
 public class TileTest extends ApplicationAdapter implements InputProcessor {
@@ -41,6 +46,23 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
         sb = new SpriteBatch();
         texture = new Texture(Gdx.files.internal("icons/teddy.png"));
         sprite = new Sprite(texture);
+
+        //how not to do sprites behind stuff
+        int mapWidth = tiledMap.getProperties().get("width", Integer.class) / 2;
+        int mapHeight = tiledMap.getProperties().get("height", Integer.class) / 2;
+
+        TiledMapTileLayer tileLayer = new TiledMapTileLayer(mapWidth, mapHeight, 64, 64);
+        Cell cell = new Cell();
+        TextureRegion textureRegion = new TextureRegion(texture, 64, 64);
+
+        cell.setTile(new StaticTiledMapTile(textureRegion));
+        tileLayer.setCell(4, 10, cell);
+
+        MapLayer tempLayer = tiledMap.getLayers().get(tiledMap.getLayers().getCount() - 1);
+        tiledMap.getLayers().remove(tiledMap.getLayers().getCount() - 1);
+        tiledMap.getLayers().add(tileLayer);
+        tiledMap.getLayers().add(tempLayer);
+        //end of what not to do
     }
 
     @Override

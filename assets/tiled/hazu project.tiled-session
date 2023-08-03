@@ -3,8 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "maps/school/school.tmx",
     "expandedProjectPaths": [
+        "maps/school",
+        "maps",
+        ".",
+        "sets/school"
     ],
     "fileStates": {
         "maps/school/School.tsx": {
@@ -12,11 +16,11 @@
             "scaleInEditor": 1
         },
         "maps/school/school.tmx": {
-            "scale": 1.5,
+            "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 174.66666666666666,
-                "y": 180.33333333333337
+                "x": 319,
+                "y": 333
             }
         }
     },
@@ -25,6 +29,7 @@
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
     "openFiles": [
+        "maps/school/school.tmx"
     ],
     "project": "hazu project.tiled-project",
     "recentFiles": [
