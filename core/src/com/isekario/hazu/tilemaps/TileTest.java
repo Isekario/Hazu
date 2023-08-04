@@ -1,4 +1,4 @@
-package com.isekario.hazu;
+package com.isekario.hazu.tilemaps;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -11,13 +11,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
 import com.badlogic.gdx.math.Vector3;
 
 public class TileTest extends ApplicationAdapter implements InputProcessor {
@@ -28,6 +25,8 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
     SpriteBatch sb;
     Texture texture;
     Sprite sprite;
+    MapLayer objectLayer;
+    TextureRegion textureRegion;
 
     @Override
     public void create() {
@@ -39,30 +38,19 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
         camera.update();
 
         tiledMap = new TmxMapLoader().load("maps/school/school.tmx");
-        tiledMapRenderer = new OrthoCachedTiledMapRenderer(tiledMap);
+        tiledMapRenderer = new OrthogonalTiledMapRendererWithSprites(tiledMap);
+
+        texture = new Texture(Gdx.files.internal("icons/teddy.png"));
+
+        objectLayer = tiledMap.getLayers().get("objects");
+        textureRegion = new TextureRegion(texture, 64, 64);
+
+        TextureMapObject tmo = new TextureMapObject(textureRegion);
+        tmo.setX(0);
+        tmo.setY(0);
+        objectLayer.getObjects().add(tmo);
 
         Gdx.input.setInputProcessor(this);
-
-        sb = new SpriteBatch();
-        texture = new Texture(Gdx.files.internal("icons/teddy.png"));
-        sprite = new Sprite(texture);
-
-        //how not to do sprites behind stuff
-        int mapWidth = tiledMap.getProperties().get("width", Integer.class) / 2;
-        int mapHeight = tiledMap.getProperties().get("height", Integer.class) / 2;
-
-        TiledMapTileLayer tileLayer = new TiledMapTileLayer(mapWidth, mapHeight, 64, 64);
-        Cell cell = new Cell();
-        TextureRegion textureRegion = new TextureRegion(texture, 64, 64);
-
-        cell.setTile(new StaticTiledMapTile(textureRegion));
-        tileLayer.setCell(4, 10, cell);
-
-        MapLayer tempLayer = tiledMap.getLayers().get(tiledMap.getLayers().getCount() - 1);
-        tiledMap.getLayers().remove(tiledMap.getLayers().getCount() - 1);
-        tiledMap.getLayers().add(tileLayer);
-        tiledMap.getLayers().add(tempLayer);
-        //end of what not to do
     }
 
     @Override
@@ -75,12 +63,6 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
 
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
-
-        sb.setProjectionMatrix(camera.combined);
-
-        sb.begin();
-        sprite.draw(sb);
-        sb.end();
     }
 
     @Override
@@ -111,7 +93,10 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         Vector3 clickCoordinates = new Vector3(screenX, screenY, 0);
         Vector3 position = camera.unproject(clickCoordinates);
-        sprite.setPosition(position.x, position.y);
+        TextureMapObject character = (TextureMapObject) tiledMap.getLayers().get("objects").getObjects().get(0);
+
+        character.setX(position.x);
+        character.setY(position.y);
 
         return true;
     }
@@ -140,9 +125,7 @@ public class TileTest extends ApplicationAdapter implements InputProcessor {
     public void dispose() {
         super.dispose();
 
-        //img.dispose();
         tiledMap.dispose();
-        sb.dispose();
         texture.dispose();
     }
 }

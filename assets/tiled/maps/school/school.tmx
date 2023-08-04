@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="17" height="14" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="17" height="14" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="1">
  <tileset firstgid="1" source="School.tsx"/>
  <layer id="1" name="infrastructure" width="17" height="14">
   <data encoding="base64" compression="zlib">
    eJyl0kkKwkAQheHquDEn0Y0TbgRv47QQPIpKEseVRxHBCW8jbkQF/UMabATTpm34eCFQj8qgRMRDTmcevmQ7dZSUSBkVVNF06BiywEgbe24da+YKPEwRG8eOM3MBQlwcOwLeQYhIJdcNh44dc1uVZNzTl/c3sqWvOyJjPs4n92rqNwNjD7OnhTY66KZkz+j43GOCKWaWXKTssccBR0ueUva44o6bJR+6Y47lH1YZ/4Nv5wV4W0wt
+  </data>
+ </layer>
+ <objectgroup id="2" name="objects"/>
+ <layer id="3" name="plants" width="17" height="14">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg8IJEJwf7LSJ4Zk5HM0GfCrW4UjIKhDACU8wIo
   </data>
  </layer>
 </map>
